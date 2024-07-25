@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day-9: DOM Manipulation</title>
+</head>
+
+<body style="color: white; background-color: black;">
+    <div class="task_1" id="first_div">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, repellat!
+    </div>
+    <div class="task_2" id="second_div">Lorem ipsum dolor sit amet.
+    </div>
+
+    <div id="list">
+        <ul id="unorder_list">
+            <li>typescript</li>
+
+        </ul>
+    </div>
+    <p id="para">Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, debitis harum similique laborum porro
+        quae esse dolore minus veniam reprehenderit?</p>
+
+
+    <div class="para">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi totam corporis at eveniet provident, facere
+            facilis rem dolor cumque consequatur id hic perferendis a deserunt vel ab, aut consectetur ducimus!</p>
+    </div>
+
+    <div style="background-color: brown;" class="mouse">Lorem, ipsum.</div>
+
+</body>
+<script>
+
+
+    // // Activity 1
+    // // Task 1
+    const task1 = document.getElementById("first_div");
+    task1.textContent = "Chai aur Code";
+
+    // // Task 2
+    const task2 = document.getElementsByClassName("task_2");
+    // in order to apply style in using class, we need to use loop since there might be many element with class name.
+    for (let i = 0; i < task2.length; i++) {
+        task2[i].style.backgroundColor = "yellow";
+    }
+
+    // Activity 2
+    // Task 3
+    const createdDiv = document.createElement("div");
+    createdDiv.textContent = "Hello world";
+    document.body.appendChild(createdDiv);
+
+    // // Task 4
+    const createdLi = document.createElement("li");
+    createdLi.textContent = "javascript";
+
+    const ul = document.getElementById("unorder_list");
+    ul.appendChild(createdLi);
+
+    // // Activity 3
+    // // Task 5
+    const para = document.getElementById("para");
+    para.remove();
+
+    // Task 6
+    const li = document.querySelector("ul li:last-child");
+    // console.log(li);
+    li.style.backgroundColor = "yellow";
+
+    // Activity 4
+    // Task 7
+    // unable to complete activity 4 reight now (25/7/24) , but i will solve it very soon.
+
+    // Activity 5
+    // Task 9
+    // const p = document.querySelector('.para')
+    // p.addEventListener('click', (e) => {
+    //     console.log(e.target);
+    //     p.textContent = "Abdullah Ansari"
+    // })
+
+    // Task 10
+    const mouse = document.querySelector('.mouse')
+    mouse.addEventListener('mouseover', (e) => {
+        // console.log(e);
+        console.log(e.target);
+        mouse.style.backgroundColor = 'blue'
+    })
+
+</script>
+
+</html>
