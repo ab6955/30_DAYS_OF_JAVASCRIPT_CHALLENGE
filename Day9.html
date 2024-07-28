@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 9: DOM Manipulation</title>
+    <style>
+        .mouse {
+            width: 80px;
+            height: 25px;
+            border: 2px solid white;
+        }
+    </style>
+</head>
+
+<body style="background-color: #414141; color: aliceblue;">
+    <div id="Task_1">
+        <li>First_Element</li>
+    </div>
+    <div class="Task_2">
+        <ul class="parent">
+            <li>One</li>
+            <li>Two</li>
+            <li>Three</li>
+            <li>Four</li>
+            <li>Five</li>
+        </ul>
+        <!-- <img src="https://png.pngtree.com/png-vector/20200713/ourmid/pngtree-web-development-concept-flat-design-png-image_2303316.jpg"
+            alt=""> -->
+        <p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, autem?</p>
+        <button>submit</button>
+
+        <div class="mouse">Abdullah</div>
+    </div>
+</body>
+<script>
+    // Activity 1
+    // Task 1
+    const firstTask = document.getElementById('Task_1')
+    firstTask.textContent = "Hello world"
+
+    // Task 2
+    const secondTask = document.getElementsByClassName('Task_2')
+    // secondTask[2].style.backgrounColor = "blue"
+    for (let i = 0; i < secondTask.length; i++) {
+        secondTask[i].style.backroundColor = "blue"
+        console.log(secondTask[i]);
+    }
+
+    // Activity 2
+    // Task 3
+    const div = document.createElement('div')
+    div.textContent = 'chai aur code'
+    document.body.appendChild(div)
+
+    // Task 4
+    const newli = document.createElement('li')
+    newli.textContent = "Five"
+    const oldli = document.querySelector('ul li')
+    console.log(oldli);
+    oldli.replaceWith(newli)
+
+    // Activity 3
+    // Task 5
+    const removeChild = document.querySelector('ul li:first-child')
+    removeChild.remove()
+
+    // Task 6
+    const removeLastChild = document.querySelector('ul li:last-child')
+    removeLastChild.remove()
+
+    // Activity 3
+    // Task 7
+    // const image = document.querySelector('img')
+    // console.log(image);
+    // image.setAttribute('src', 'https://w7.pngwing.com/pngs/501/438/png-transparent-man-using-laptop-illustration-web-development-web-developer-web-design-web-development-text-computer-presentation.png')
+    // console.log(image);
+
+    // Task 8
+    // Adding CSS
+    const thirdChild = document.querySelector('li:nth-child(2)')
+    // console.log(thirdChild);
+    thirdChild.style.border = '2px solid red'
+    thirdChild.style.padding = '10px'
+    // Removing CSS
+    // const removeCSS = document.querySelector('li:nth-child(2)')
+    // thirdChild.removeAttribute('padding') //  Will Not Work
+    thirdChild.style.removeProperty('padding'); //Correct
+    thirdChild.style.removeProperty('border') // Correcti
+
+    // Task 9
+    const para = document.querySelector('.para')
+    const button = document.querySelector('button')
+    button.addEventListener('click', (e) => {
+        console.log(e.target);
+        para.textContent = "chai"
+    })
+
+    // Task 10
+    const mouseEvent = document.querySelector('.mouse')
+    mouseEvent.addEventListener("mouseover", (e) => {
+        console.log(e.target);
+        e.target.style.border = '4px solid blue'
+    })
+</script>
+
+</html>
